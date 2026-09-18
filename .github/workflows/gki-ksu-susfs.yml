@@ -312,8 +312,8 @@ jobs:
           NOMOUNT_DIR="$(pwd)/tools/user_source/fs/nomount"
           
           # Force overwrite the existing .c and .h files with the latest upstream versions
-          curl -sSL "https://raw.githubusercontent.com/maxsteeel/nomount/master/kernel/src/nomount.c" -o "$NOMOUNT_DIR/nomount.c"
-          curl -sSL "https://raw.githubusercontent.com/maxsteeel/nomount/master/kernel/src/nomount.h" -o "$NOMOUNT_DIR/nomount.h"
+          #curl -sSL "https://raw.githubusercontent.com/maxsteeel/nomount/master/kernel/src/nomount.c" -o "$NOMOUNT_DIR/nomount.c"
+          #curl -sSL "https://raw.githubusercontent.com/maxsteeel/nomount/master/kernel/src/nomount.h" -o "$NOMOUNT_DIR/nomount.h"
 
           echo ">>> Injecting user source files into common tree..."
           shopt -s dotglob nullglob
