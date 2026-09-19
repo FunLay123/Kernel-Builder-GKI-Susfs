@@ -21,7 +21,7 @@ if [ "${USE_DYNAMIC_TRANSPLANT}" == "true" ]; then
     cd "${MANAGER_DIR}"
 
     # CAPTURE THIS IMMEDIATELY BEFORE ANY MERGING!
-    UPSTREAM_HASH=$(git log -n 1 --format="%H" -i --grep="ci skip" --grep="skip ci" --invert-grep -- . ":!website/" ":!docs/" ":!*.md" ":!.github/" ":!scripts/")
+    UPSTREAM_HASH=$(git log -n 1 --format="%H" -i --grep="ci skip" --grep="skip ci" --invert-grep -- . ":!website" ":!docs" ":!*.md" ":!.github" ":!scripts" ":!userspace")
     CALCULATED_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
     echo "  -> Target Tag: $CALCULATED_TAG"
 
@@ -85,7 +85,7 @@ else
 
         # FIX 4: Walk backward down the pristine mainline branch
         set +o pipefail
-        UPSTREAM_HASH=$(git log -n 1 --first-parent "${RAW_BASE}" --format="%H" -i --grep="ci skip" --grep="skip ci" --invert-grep -- . ":!website/" ":!docs/" ":!*.md" ":!.github/" ":!scripts/")
+        UPSTREAM_HASH=$(git log -n 1 --first-parent "${RAW_BASE}" --format="%H" -i --grep="ci skip" --grep="skip ci" --invert-grep -- . ":!website" ":!docs" ":!*.md" ":!.github" ":!scripts" ":!userspace")
         set -o pipefail
     fi
     
